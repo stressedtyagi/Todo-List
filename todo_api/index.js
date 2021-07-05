@@ -7,11 +7,12 @@ const PORT = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-
+app.use(express.static(__dirname + '/views'));
+app.use(express.static(__dirname + '/public'))
 app.use('/api/todo', todoRoutes);
 
 app.get('/', function(req,res) {
-    res.send('Sending response from main route');
+    res.sendFile("index.html");
 })
 
 app.listen(PORT, function () {

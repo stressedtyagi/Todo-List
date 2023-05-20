@@ -1,15 +1,13 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var db = require("../models");
-var helpers = require("../helpers/todos")
+var helpers = require("../helpers/todos");
 
-router.route('/')
-    .get(helpers.getTodos)
-    .post(helpers.makeTodo)
+router.route("/").get(helpers.getTodos).post(helpers.makeTodo);
 
-router.route('/:todoId')
+router
+    .route("/:todoId")
     .get(helpers.getOneTodo)
     .put(helpers.updateTodo)
-    .delete(helpers.deleteTodo)
+    .delete(helpers.deleteTodo);
 
 module.exports = router;
